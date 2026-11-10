@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QuoteGuard · 跨境 B2B 出海工作台</title>
+<style>
+:root{color-scheme:light;--ink:#14283b;--muted:#566777;--line:#dce5e9;--paper:#f3f6f7;--white:#fff;--nav:#132737;--teal:#146454;--mint:#e4f4ee;--warn:#8b5212;--amber:#fff1d9;--red:#9e3a33;--rose:#fcebe8;font:15px/1.55 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink)}[hidden]{display:none!important}h1,h2,h3,p,dl{margin:0}button,input,select,textarea{font:inherit}button,a,input,textarea,select,summary{outline-offset:3px}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #319c87}a{color:var(--teal)}button{cursor:pointer}button:disabled{opacity:.54;cursor:default}button,.button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;padding:8px 13px;font-weight:650;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}button:hover:not(:disabled),.button:hover{border-color:#8ab9ad}.primary{color:#fff;background:var(--teal);border-color:var(--teal)}.quiet{background:transparent}.app{display:grid;grid-template-columns:216px minmax(0,1fr);min-height:100dvh}.sidebar{background:var(--nav);color:#e8f4f5;padding:26px 15px;display:flex;flex-direction:column;gap:29px;position:sticky;top:0;height:100dvh}.brand{display:flex;align-items:center;gap:10px;padding:0 8px}.mark{background:#b7eedc;color:#123e36;display:grid;place-items:center;width:34px;height:34px;border-radius:9px;font-weight:850}.brand strong{display:block;font-size:17px}.brand small,.nav-label,.sidebar-footer{color:#b4c8d3;font-size:11px}.nav-label{margin:0 8px 8px;letter-spacing:.14em}.nav{display:grid;gap:5px}.nav button{background:transparent;border:1px solid transparent;color:#dbe7eb;justify-content:flex-start;padding:10px 11px;gap:10px;white-space:nowrap}.nav button[aria-current=page]{background:#254453;border-color:#3c626d;color:#b7eedc}.nav-num{font:11px ui-monospace,monospace;letter-spacing:.08em;opacity:.8}.sidebar-footer{margin-top:auto;border-top:1px solid #3c5361;padding:14px 8px 0}.top{height:58px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border-bottom:1px solid var(--line);padding:0 30px;color:var(--muted);font-size:13px}.workspace{max-width:1320px;margin:auto;padding:28px 30px 38px}.hero{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:19px}.kicker,.step{color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.12em}.hero h1{font-size:clamp(25px,3vw,38px);line-height:1.16;letter-spacing:-.045em;margin:6px 0 7px}.hero p,.muted,.hint{color:var(--muted)}.hero p{max-width:63ch}.hint{font-size:13px}.tag{display:inline-flex;align-items:center;border-radius:100px;background:#edf2f4;color:#435568;font-size:11px;font-weight:750;padding:4px 9px;white-space:nowrap}.tag.ok{color:#125c4a;background:var(--mint)}.tag.warn{color:var(--warn);background:var(--amber)}.tag.stop{color:var(--red);background:var(--rose)}.panel{min-width:0;background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px}.panel h2{font-size:18px;line-height:1.3}.panel h3{font-size:15px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.22fr);gap:16px;align-items:start}.stack{display:grid;gap:14px}.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.cases{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:12px}.cases button{font-size:13px;padding:6px 9px}.cases button[aria-pressed=true]{color:var(--teal);border-color:#93c4b5;background:#eff9f5}.field{display:grid;gap:6px;margin-bottom:13px}.field label{font-weight:650}.field small{color:var(--muted)}textarea,select,input[type=text]{width:100%;border:1px solid #cad8df;border-radius:8px;background:#fbfcfd;color:var(--ink);padding:10px}textarea{resize:vertical;min-height:125px}.filebox{padding:10px 11px;border:1px dashed #acbdc7;border-radius:9px;background:#f7fafb;margin:7px 0 12px}.filebox input{display:block;width:100%;margin:5px 0}.filebox input::file-selector-button{font:inherit;font-size:13px;color:var(--teal);background:#fff;border:1px solid var(--line);padding:4px 7px;border-radius:5px}.sample-links a{font-size:12px}.error{color:var(--red);font-size:13px;margin-top:7px}.verdict{background:#eef6f3;border:1px solid #d4e7df;border-radius:9px;padding:12px;margin-bottom:4px}.verdict[data-state=hold]{background:#fff5e5;border-color:#efdabb}.verdict[data-state=empty]{background:#f1f5f7;border-color:var(--line)}.verdict h3{font-size:17px;margin:3px 0}.check{padding:11px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.check:last-child{border-bottom:0}.check-head{display:flex;align-items:center;justify-content:space-between;gap:6px}.check p{font-size:13px;color:var(--muted);margin-top:4px}.check details,.fold{font-size:13px;margin-top:5px}.check summary,.fold summary{cursor:pointer;font-weight:650;color:var(--teal)}.check details p{padding-left:9px;border-left:2px solid #bfdbd2}.fold{border-top:1px solid var(--line);padding-top:11px;margin-top:12px}.fold[open] summary{margin-bottom:9px}.task{display:flex;align-items:baseline;gap:7px;padding:6px 0}.draft,.result{padding:12px;background:#f3f6f7;border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere;margin-bottom:10px}.strip{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#edf7f2;border:1px solid #d4e8df;border-radius:9px;padding:10px;margin-top:10px}.segments{display:flex;gap:7px;margin-bottom:14px;flex-wrap:wrap}.segments button[aria-pressed=true]{color:#fff;background:var(--teal);border-color:var(--teal)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px}.stat strong{display:block;font-size:27px;letter-spacing:-.04em;color:var(--teal)}.kv{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:7px 13px;margin:10px 0 15px}.kv dt{color:var(--muted)}.kv dd{margin:0;overflow-wrap:anywhere}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}th{background:#f2f6f7;color:var(--muted)}.list{margin:8px 0 0;padding-left:21px}.list li{margin:6px 0}.cardlist{display:grid;gap:8px}.mini{border:1px solid var(--line);border-radius:8px;padding:10px}.top-progress{display:flex;gap:5px;align-items:center;flex-wrap:wrap}.screenreader{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:920px){.app{grid-template-columns:175px minmax(0,1fr)}.top,.workspace{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.app{display:block}.sidebar{position:static;height:auto;padding:13px;gap:12px}.nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.nav button{font-size:13px;padding:7px;gap:5px}.nav-label,.sidebar-footer,.nav-num{display:none}.top{height:auto;padding:8px 13px;flex-wrap:wrap}.workspace{padding:16px 12px 28px}.hero{align-items:start;flex-direction:column;gap:7px}.panel{padding:13px}.strip{align-items:start;flex-direction:column}.stats{gap:7px}}
+.chat-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr);gap:16px;align-items:start}.chat-feed{min-height:210px;max-height:52vh;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:2px 3px 12px}.chat-turn{align-self:flex-end;max-width:90%;background:var(--mint);padding:9px 13px;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere}.chat-agent{align-self:stretch;background:#f3f6f7}.chat-agent strong{display:block;color:var(--teal);font-size:12px;margin-bottom:4px}.chat-compose{border-top:1px solid var(--line);padding-top:12px}.chat-compose textarea{min-height:100px}.chat-block{margin-top:13px;padding-top:11px;border-top:1px solid var(--line)}.chat-block h3{font-size:14px;margin-bottom:5px}.chat-fact{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:8px;padding:7px 0;overflow-wrap:anywhere}.chat-fact input{margin-top:5px}.chat-fact small{display:block;color:var(--muted)}.chat-instruction{margin:8px 0}.chat-samples{margin:9px 0 12px}.chat-samples button{font-size:12px}
+@media(max-width:1000px){.chat-grid{grid-template-columns:1fr}}
+dialog{width:min(500px,calc(100% - 26px));border:1px solid var(--line);border-radius:13px;padding:20px;color:var(--ink)}dialog::backdrop{background:#10243699}dialog input{width:100%;border:1px solid var(--line);border-radius:8px;padding:8px}#cloudSettings{font-size:12px}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><span class="mark" aria-hidden="true">Q</span><div><strong>QuoteGuard</strong><small>跨境 B2B 出海工作台</small></div></div>
+  <div><p class="nav-label">业务模块</p><nav class="nav" id="nav" aria-label="业务模块">
+    <button type="button" data-page="products"><span class="nav-num">01</span>商品管理</button>
+    <button type="button" data-page="inquiry" aria-current="page"><span class="nav-num">02</span>询盘接待</button>
+    <button type="button" data-page="buyers"><span class="nav-num">03</span>商机获客</button>
+    <button type="button" data-page="fulfillment"><span class="nav-num">04</span>履约管理</button>
+    <button type="button" data-page="data"><span class="nav-num">05</span>数据中心</button>
+    <button type="button" data-page="strategy"><span class="nav-num">06</span>AI 运营</button>
+    <button type="button" data-page="chat"><span class="nav-num">07</span>智能对话</button>
+  </nav></div>
+  <div class="sidebar-footer">MatrixNEXT · RFQ 命题<br>工作台使用演示资料</div>
+</aside>
+<main>
+<div class="top"><span>工作台 / <strong id="crumb">询盘接待</strong></span><span class="tag ok">在线版 · 打开即用</span></div>
+<div class="workspace">
+<section id="page-inquiry" data-view>
+<header class="hero"><div><p class="kicker">02 / RFQ INBOX</p><h1>询盘接待</h1><p>导入买家邮件与附件，核对型号、数量、交期及工厂依据。</p></div><span class="tag" id="version">尚未核对</span></header>
+<div class="grid">
+  <section class="panel">
+    <div class="panel-head"><h2><span class="step">01</span> 导入询盘</h2><span class="tag">邮件 · Excel · PDF</span></div>
+    <div class="cases" id="cases" aria-label="填入示例">
+      <button class="primary" type="button" id="pdfDemo">试跑 PDF 报价案例</button>
+      <button type="button" data-case="short">短交期</button>
+      <button type="button" data-case="custom">定制需求</button>
+      <button type="button" data-case="change">USB-C 改款</button>
+    </div>
+    <div class="field"><label for="inquiry">买家邮件正文</label><textarea id="inquiry" maxlength="4000" placeholder="粘贴邮件，或上传含询价信息的附件。"></textarea></div>
+    <div class="filebox"><label for="attachment">询价附件</label><input id="attachment" type="file" accept=".xlsx,.pdf" multiple><p class="hint">Excel 和文字 PDF 各一份，每份最多 1 MB。</p><div class="actions sample-links"><button type="button" id="clearAttachment" hidden>移除附件</button><a href="/demo/rfq-sample.xlsx" download>Excel 样例</a><a href="/demo/rfq-sample.pdf" download>PDF 样例</a></div></div>
+    <div class="actions"><button class="primary" type="button" id="run">运行询盘核对</button><button type="button" id="clearInquiry">清空输入</button><button type="button" data-go="chat">对话整理</button></div>
+    <p id="error" class="error" role="alert"></p>
+  </section>
+  <section class="panel" aria-label="核对结果">
+    <div class="panel-head"><h2><span class="step">02</span> 核对与回复</h2></div>
+    <div class="verdict" id="verdict" data-state="empty" aria-live="polite"><span class="tag" id="reviewMode" hidden></span><h3 id="decision">等待询盘</h3><p class="hint" id="summary">导入询盘，或点击左侧 PDF 样例。</p></div>
+    <div class="strip" id="quoteNext" hidden><p id="quoteNextText"></p><button type="button" data-go="documents">查看报价草稿 →</button></div>
+    <div id="rows"></div>
+    <details class="fold" id="tasksPanel" hidden><summary id="taskTitle">人工复核待办</summary><div id="tasks"></div></details>
+    <details class="fold" id="replyPanel" hidden><summary>买家回信草稿</summary><div class="draft" id="draft"></div><button type="button" id="downloadReply">下载回信草稿</button><p class="hint">供人工确认。工作台不发送邮件。</p></details>
+  </section>
+</div>
+</section>
+
+<section id="page-products" data-view hidden>
+<header class="hero"><div><p class="kicker">01 / PRODUCT</p><h1>商品管理</h1><p>把产品名称、规格和目标市场整理成可编辑的上架文案。</p></div><span class="tag">模板草稿</span></header>
+<div class="grid">
+  <form class="panel" id="productForm"><div class="panel-head"><h2>商品智能生成</h2></div>
+    <div class="field"><label for="productName">商品名称</label><input id="productName" type="text" maxlength="90" value="Schuko 六位插座" required></div>
+    <div class="field"><label for="productSku">工厂型号</label><input id="productSku" type="text" maxlength="40" value="S6-EU" required></div>
+    <div class="field"><label for="productSpecs">已确认规格</label><textarea id="productSpecs" maxlength="500" required>六位 Schuko 插座，不带 USB。适用文件需按型号和版本复核。</textarea></div>
+    <div class="field"><label for="productMarket">目标市场</label><input id="productMarket" type="text" maxlength="70" value="西班牙"></div>
+    <button class="primary" type="submit">整理上架文案</button>
+  </form>
+  <section class="panel"><div class="panel-head"><h2>上架文案草稿</h2></div><p class="hint" id="productEmpty">先填写左侧规格，再生成草稿。</p><div id="productResult" hidden><div class="field"><label for="productDraft">草稿内容</label><textarea id="productDraft" rows="10"></textarea></div><button type="button" id="productDownload">下载文案</button></div></section>
+</div>
+</section>
+
+<section id="page-buyers" data-view hidden>
+<header class="hero"><div><p class="kicker">03 / PROSPECTS</p><h1>商机获客</h1><p>按市场和采购量筛选演示线索，整理跟进准备项。</p></div><span class="tag warn">自编样例 · 非联网获客</span></header>
+<div class="grid">
+  <form class="panel" id="buyerForm"><div class="panel-head"><h2>海外买家筛选</h2></div>
+    <div class="field"><label for="buyerCountry">目标市场</label><select id="buyerCountry"><option value="西班牙">西班牙</option><option value="德国">德国</option><option value="全部">全部市场</option></select></div>
+    <div class="field"><label for="buyerQuantity">采购量门槛</label><select id="buyerQuantity"><option value="0">不限</option><option value="500" selected>500 件及以上</option><option value="1000">1,000 件及以上</option></select></div>
+    <button class="primary" type="submit">筛选示例线索</button>
+  </form>
+  <section class="panel"><div class="panel-head"><h2>跟进名单</h2><span class="tag" id="buyerCount">0 条</span></div><div class="cardlist" id="buyerResults"></div></section>
+</div>
+</section>
+
+<section id="page-fulfillment" data-view hidden>
+<header class="hero"><div><p class="kicker">04 / FULFILLMENT</p><h1>履约管理</h1><p>按订单整理物流条件和单证。报价草稿沿用当前询盘的核对结果。</p></div></header>
+<div class="segments" id="segments" aria-label="履约分组"><button type="button" data-section="documents" aria-pressed="true">合同 / 单证</button><button type="button" data-section="logistics" aria-pressed="false">物流方案</button></div>
+<div class="grid" id="section-documents">
+  <section class="panel"><div class="panel-head"><h2>标准化报价草稿</h2><span class="tag">示例价格</span></div>
+  <p class="hint" id="quoteStatus" aria-live="polite"></p><dl id="quoteDetails" class="kv"></dl>
+  <div class="actions"><button id="quoteDownload" class="primary" type="button" disabled>下载报价单 PDF</button><button type="button" data-go="inquiry">返回询盘核对</button></div></section>
+  <section class="panel"><div class="panel-head"><h2>合同 / 单证准备</h2><span class="tag">核对清单</span></div>
+  <div class="field"><label for="docType">单证类型</label><select id="docType"><option value="invoice">商业发票</option><option value="packing">装箱单</option><option value="declaration">报关单</option><option value="contract">外贸合同</option></select></div>
+  <ul class="list" id="docItems"></ul><p class="hint">供跟单人员准备资料。正式单证须按订单和授权流程制作。</p></section>
+</div>
+<div class="grid" id="section-logistics" hidden>
+  <form class="panel" id="logisticsForm"><div class="panel-head"><h2>物流方案生成</h2><span class="tag">演练</span></div>
+  <div class="field"><label for="origin">发货地</label><input id="origin" type="text" maxlength="60" value="宁波" required></div>
+  <div class="field"><label for="destination">目的地</label><input id="destination" type="text" maxlength="60" value="西班牙" required></div>
+  <div class="field"><label for="transport">出货方式</label><select id="transport"><option>海运</option><option>空运</option><option>快递</option></select></div>
+  <button class="primary" type="submit">生成交接清单</button></form>
+  <section class="panel"><div class="panel-head"><h2>物流交接清单</h2></div><p class="hint" id="logisticsEmpty">先填写发货地、目的地和运输方式。</p><div class="result" id="logisticsResult" hidden></div><p class="hint">运价、班期、时效和责任边界由货代按实际订单确认。</p></section>
+</div>
+</section>
+
+<section id="page-data" data-view hidden>
+<header class="hero"><div><p class="kicker">05 / OPERATIONS DATA</p><h1>数据中心</h1><p>查看本次会话实际完成的核对和下载记录。刷新页面后清空。</p></div></header>
+<div class="stats" id="stats"></div>
+<section class="panel"><div class="panel-head"><h2>核对历史</h2><span class="tag">本次会话</span></div><p class="hint" id="historyEmpty">尚无记录。完成一次询盘核对后会出现在这里。</p><div class="table-scroll" id="historyTable" hidden><table><thead><tr><th>时间</th><th>询盘版本</th><th>型号</th><th>结果</th><th>报价草稿</th></tr></thead><tbody id="history"></tbody></table></div></section>
+</section>
+
+<section id="page-strategy" data-view hidden>
+<header class="hero"><div><p class="kicker">06 / AI OPERATIONS</p><h1>AI 运营</h1><p>从当前询盘找出优先补齐的资料，并查看智能体实际执行的步骤。</p></div><span class="tag">根据本次核对生成</span></header>
+<div class="grid">
+  <section class="panel"><div class="panel-head"><h2>运营策略</h2></div><ul id="strategyItems" class="list"></ul><div class="actions" style="margin-top:10px"><button type="button" data-go="inquiry">返回询盘</button></div></section>
+  <section class="panel"><div class="panel-head"><h2>智能体运行记录</h2></div><p id="traceEmpty" class="hint">完成核对后，查看提取、验引用、查台账与报价各阶段。</p><ol class="list" id="trace"></ol></section>
+</div>
+</section>
+<section id="page-chat" data-view hidden>
+<header class="hero"><div><p class="kicker">07 / RFQ COPILOT</p><h1>智能对话</h1><p>直接贴买家留言、工厂反馈或后续变更。Agent 会结合这次对话整理事实、待确认项和处理顺序。</p></div><span class="tag ok" id="chatMode">在线 Agent · 无需配置</span></header>
+<div class="chat-grid">
+  <section class="panel" aria-label="对话">
+    <div class="panel-head"><h2>与 Agent 对话</h2><button type="button" id="resetChat">新建对话</button></div>
+    <p class="hint">当前会话最多回看最近 10 条输入，由在线 Agent 整理可核验事实、待确认项和处理步骤。</p>
+    <div class="actions chat-samples" id="chatExamples" aria-label="填写示例"><button type="button" data-example="buyer">示例：买家新要求</button><button type="button" data-example="factory">示例：工厂反馈</button><button type="button" id="chatUseInquiry">引用当前邮件</button></div>
+    <div class="chat-feed" id="chatFeed" role="log" aria-label="对话消息" aria-live="polite"><p class="hint" id="chatEmpty">可以先说：「客户要 1,200 件，邮件写 35 天，附件是 45 天，应该先找谁确认？」</p></div>
+    <form class="chat-compose" id="chatForm">
+      <div class="field"><label for="chatInput">补充信息或追问</label><textarea id="chatInput" maxlength="2000" required placeholder="例如：工厂说标准款最短 40 天，但 USB-C 款还没给数据。请告诉我怎么处理。"></textarea></div>
+      <div class="actions"><button type="submit" class="primary" id="sendChat">发送给 Agent</button><span class="hint" id="chatStatus" role="status"></span></div><p class="error" id="chatError" role="alert"></p>
+    </form>
+  </section>
+  <section class="panel" aria-label="本轮整理">
+    <div class="panel-head"><h2>本轮整理</h2><span class="tag">仅供人工确认</span></div>
+    <p id="chatPlanEmpty" class="hint">发送消息后，会在这里展示带原文出处的要点、待确认问题和下一步。</p>
+    <div id="chatPlan" hidden>
+      <div class="chat-block"><h3>有原文依据的要点</h3><div id="chatFacts"></div><p class="hint chat-instruction">只勾选属于买家询价的原话。工厂反馈和待确认项不要当成买家要求。</p><button type="button" id="chatTransfer" disabled>追加选中原话到询盘</button></div>
+      <div class="chat-block"><h3>待确认问题</h3><ul class="list" id="chatQuestions"></ul></div>
+      <div class="chat-block"><h3>建议执行顺序</h3><ol class="list" id="chatSteps"></ol></div>
+    </div>
+  </section>
+</div>
+</section>
+</div></main></div>
+<script src="/assets/jszip.min.js"></script>
+<script src="/assets/pdf-lib.min.js"></script>
+<script src="/assets/agent-rules.js"></script>
+<script>
+const qgHeaders=()=>({'Content-Type':'application/json'});
+async function qgReadAttachment(file){
+ const bytes=new Uint8Array(await file.arrayBuffer()), result=[];
+ if(/\.pdf$/i.test(file.name)){
+  const pdf=await import('/assets/pdf.min.mjs');pdf.GlobalWorkerOptions.workerSrc='/assets/pdf.worker.min.mjs';
+  const job=pdf.getDocument({data:bytes,isEvalSupported:false,disableFontFace:true,stopAtErrors:true});
+  try{
+   const book=await job.promise;
+   if(book.numPages<1||book.numPages>10)throw Error('PDF 须为 1–10 页。');
+   let chars=0;
+   for(let n=1;n<=book.numPages;n++){
+    const content=await (await book.getPage(n)).getTextContent();
+    const text=content.items.map(i=>typeof i.str==='string'?i.str+(i.hasEOL?'\n':' '):'').join('').trim();
+    if(!/[\p{L}\p{N}]/u.test(text))throw Error('PDF 第 '+n+' 页没有可读文字，请使用文字版 PDF。');
+    chars+=text.length;if(chars>6000)throw Error('PDF 正文超过 6000 字。');
+    result.push({location:file.name+' · 第 '+n+' 页',text});
+   }
+  }finally{await job.destroy();}
+  return result;
+ }
+ const archive=await JSZip.loadAsync(bytes);
+ const read=async name=>{
+  const part=archive.file(name);if(!part)return null;
+  const text=await part.async('string');
+  if(text.length>800000)throw Error('Excel 内容过大。');
+  const doc=new DOMParser().parseFromString(text,'text/xml');
+  if(doc.getElementsByTagName('parsererror').length)throw Error('Excel 工作表格式无效。');
+  return doc;
+ };
+ const all=(parent,name)=>[...parent.getElementsByTagNameNS('*',name)];
+ const book=await read('xl/workbook.xml');
+ if(!book||all(book,'sheet').length!==1)throw Error('Excel 样例格式仅支持单张工作表。');
+ const sheetName=all(book,'sheet')[0].getAttribute('name');
+ const sheetPaths=Object.keys(archive.files).filter(path=>/^xl\/worksheets\/sheet\d+\.xml$/.test(path));
+ if(sheetPaths.length!==1)throw Error('找不到 Excel 工作表。');
+ const sheet=await read(sheetPaths[0]), stringDoc=await read('xl/sharedStrings.xml');
+ const strings=stringDoc?all(stringDoc,'si').map(si=>all(si,'t').map(t=>t.textContent).join('')):[];
+ const rows=all(sheet,'row');
+ if(!rows.length||rows.length>100)throw Error('Excel 须含 1–100 行。');
+ const allowed={'产品':'','数量':' 件','交期（天）':' 天','定制':'','型号文件':'','交货条款':''};
+ let chars=0;
+ for(const row of rows){
+  const number=row.getAttribute('r'), cells={};
+  for(const cell of all(row,'c')){
+   if(all(cell,'f').length||cell.getAttribute('t')==='e')throw Error('Excel 含公式或错误值，请先粘贴为值。');
+   const coordinate=cell.getAttribute('r')||'', col=coordinate.replace(/\d+$/,'');
+   const kind=cell.getAttribute('t'), v=all(cell,'v')[0]?.textContent||'';
+   const value=(kind==='s'?(strings[Number(v)]||''):kind==='inlineStr'?all(cell,'t').map(t=>t.textContent).join(''):v).trim();
+   if(value)cells[col]=value;
+  }
+  if(number==='1'){if(cells.A!=='字段'||cells.B!=='值'||Object.keys(cells).length!==2)throw Error('Excel 第一行应为「字段」「值」。');continue;}
+  if(!Object.keys(cells).length)continue;
+  if(!Object.hasOwn(allowed,cells.A)||!cells.B||Object.keys(cells).length!==2)throw Error('Excel 第 '+number+' 行不是支持的询价字段。');
+  const text=cells.B+(/^\d+$/.test(cells.B)?allowed[cells.A]:'');
+  chars+=text.length;if(chars>4000)throw Error('Excel 询价内容超过 4000 字。');
+  result.push({location:file.name+' · '+sheetName+'!B'+number,text,original:cells.B});
+ }
+ if(rows[0].getAttribute('r')!=='1'||!result.length)throw Error('请使用页面提供的两列 Excel 样例格式。');
+ return result;
+}
+async function qgQuotePdf(q){
+ const {PDFDocument,StandardFonts,rgb}=PDFLib;
+ const doc=await PDFDocument.create(), page=doc.addPage([595,842]);
+ const normal=await doc.embedFont(StandardFonts.Helvetica), bold=await doc.embedFont(StandardFonts.HelveticaBold);
+ const ink=rgb(.08,.23,.19), muted=rgb(.3,.39,.37);
+ const text=(str,x,y,size=12,font=normal,color=ink)=>page.drawText(String(str),{x,y,size,font,color});
+ page.drawRectangle({x:0,y:697,width:595,height:145,color:ink});
+ text('QUOTEGUARD / RFQ WORKBENCH',44,793,11,bold,rgb(.66,.92,.83));
+ text('Quotation draft',44,745,30,bold,rgb(1,1,1));
+ text(q.number+'  |  '+q.issued,45,719,11,normal,rgb(1,1,1));
+ text('DEMO DATA / FOR INTERNAL REVIEW ONLY / NOT AN OFFER',45,669,11,bold,rgb(.50,.22,.11));
+ page.drawRectangle({x:44,y:589,width:507,height:31,color:rgb(.90,.95,.93)});
+ text('ITEM',54,600,10,bold);text('QTY',315,600,10,bold);text('UNIT PRICE',380,600,10,bold);text('AMOUNT',480,600,10,bold);
+ text(q.sku,54,564,14,bold);text(q.product,54,543,10);
+ text(q.quantity,315,564);text(q.currency+' '+q.unit_price,380,564);text(q.currency+' '+q.amount,480,564);
+ const rows=[['Delivery term',q.trade_term],['Lead time',q.lead_days+' days after order and specification approval'],['Payment',q.payment],['Validity',q.validity_days+' days (demo)'],['Price source',q.price_ref]];
+ rows.forEach(([key,value],i)=>{text(key,45,485-i*29,11,bold);text(value,155,485-i*29,11);});
+ text('Confirm price, terms and product documents before sending a formal quotation.',45,80,10,normal,muted);
+ return doc.saveAsBase64();
+}
+</script>
+
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const e=(tag,value,cls)=>{const node=document.createElement(tag);if(value!==undefined)node.textContent=value;if(cls)node.className=cls;return node;};
+const labels={products:'商品管理',inquiry:'询盘接待',buyers:'商机获客',fulfillment:'履约管理',data:'数据中心',strategy:'AI 运营',chat:'智能对话'};
+const connected=['http:','https:'].includes(location.protocol);
+const initial='Hola, necesitamos 1.200 unidades de la regleta Schuko de 6 tomas sin USB. Plazo: 35 días. Adjuntar declaración CE del modelo. FOB Ningbo.';
+const samples={short:initial,custom:'Hola, necesitamos 800 unidades de la regleta Schuko de 6 tomas sin USB, con logo personalizado. Plazo: 20 días. Adjuntar declaración CE del modelo. FOB Ningbo.',change:initial.replace('sin USB','con USB-C')};
+let version=0, requestId=0, current=null, prior=null, downloaded=0;
+const records=[];
+function selectFulfillment(section){
+ for(const name of ['documents','logistics'])$('section-'+name).hidden=name!==section;
+ $('segments').querySelectorAll('[data-section]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.section===section)));
+}
+function show(page,section,updateHash=true){
+ if(!Object.hasOwn(labels,page))page='inquiry';
+ if(page==='fulfillment'&&section)selectFulfillment(section);
+ document.querySelectorAll('[data-view]').forEach(node=>{node.hidden=node.id!=='page-'+page;});
+ $('nav').querySelectorAll('[data-page]').forEach(b=>{if(b.dataset.page===page)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+ $('crumb').textContent=labels[page];
+ if(updateHash)history.replaceState(null,'','#'+(page==='fulfillment'&&section?section:page));
+ window.scrollTo(0,0);
+}
+function readRoute(){
+ const page=location.hash.slice(1);
+ if(['documents','logistics'].includes(page))show('fulfillment',page,false);
+ else show(page||'inquiry',null,false);
+}
+document.addEventListener('click',event=>{
+ const b=event.target.closest('button[data-go],button[data-page],button[data-section]');
+ if(!b)return;
+ if(b.dataset.section)show('fulfillment',b.dataset.section);
+ else if(b.dataset.go==='documents')show('fulfillment','documents');
+ else show(b.dataset.go||b.dataset.page);
+});
+window.addEventListener('hashchange',readRoute);
+function download(name,bytes,mime){
+ const url=URL.createObjectURL(new Blob([bytes],{type:mime})), link=e('a');
+ link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
+}
+function list(container,items){container.replaceChildren(...items.map(text=>e('li',text)));}
+function markCases(key){$('cases').querySelectorAll('[data-case]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.case===key)));}
+function clearFiles(){$('attachment').value='';$('clearAttachment').hidden=true;}
+function clearResult(message,detail){
+ current=null;
+ $('verdict').dataset.state='empty';$('decision').textContent=message;$('summary').textContent=detail;
+ $('reviewMode').hidden=true;$('rows').replaceChildren();$('quoteNext').hidden=true;
+ for(const id of ['tasksPanel','replyPanel']){$(id).hidden=true;$(id).open=false;}
+ renderDependent();
+}
+function invalidate(){
+ ++requestId;markCases(null);$('error').textContent='';$('run').disabled=!connected;
+ $('clearAttachment').hidden=!$('attachment').files.length;
+ $('version').textContent='等待重新核对';
+ clearResult('等待核对','询盘已更新，请重新核对后再查看结果。');
+}
+function renderCheck(row){
+ const article=e('article',undefined,'check'), head=e('div',undefined,'check-head');
+ const level=row.state==='条件冲突'?'stop':row.state==='有依据'?'ok':'warn';
+ head.append(e('strong',row.name),e('span',row.state,'tag '+level));article.append(head,e('p',row.factory_evidence));
+ const details=e('details');details.append(e('summary','查看询价来源与负责人'));
+ const sources=row.sources||[];
+ details.append(...(sources.length?sources.map(source=>e('p',source.location+'：'+source.excerpt)):[e('p',row.source||'没有可核验的询价原文')]),e('p','负责人：'+row.owner));
+ article.append(details);return article;
+}
+function renderResult(data,text){
+ const id=++version;
+ const oldSku=prior?.sku;
+ current={...data,id,text};prior=current;
+ $('version').textContent='核对版本 '+String(id).padStart(2,'0');
+ $('reviewMode').textContent=data.mode+(data.model?' · '+data.model:'');$('reviewMode').hidden=false;
+ const blocked=data.checks.filter(row=>['待确认','条件冲突'].includes(row.state));
+ $('verdict').dataset.state=blocked.length?'hold':'ready';$('decision').textContent=data.decision;
+ const diff=oldSku&&data.sku&&oldSku!==data.sku?'型号由 '+oldSku+' 改为 '+data.sku+'，旧版报价和签样应重新复核。':'';
+ $('summary').textContent=[blocked.length?blocked.length+' 项阻塞报价。':data.quote_reason,diff].filter(Boolean).join(' ');
+ $('rows').replaceChildren(...data.checks.map(renderCheck));
+ $('quoteNext').hidden=!data.quote;$('quoteNextText').textContent=data.quote?'报价草稿已生成，可在履约管理下载。':'';
+ $('tasksPanel').hidden=!(data.actions||[]).length;$('tasksPanel').open=blocked.length>0;
+ $('taskTitle').textContent='人工复核待办 · '+(data.actions||[]).length+' 项';
+ $('tasks').replaceChildren(...(data.actions||[]).map(t=>{
+  const label=e('label',undefined,'task'), box=e('input');box.type='checkbox';label.append(box,e('span',t.owner+' · '+t.action));return label;
+ }));
+ $('draft').textContent=replyText(current);$('replyPanel').hidden=false;
+ records.unshift({id,time:new Date(),sku:data.sku,decision:data.decision,amount:data.quote?data.quote.currency+' '+data.quote.amount:'未生成',blocked:!!blocked.length,quote:!!data.quote});
+ if(records.length>50)records.pop();
+ renderDependent();
+}
+function replyText(r){
+ const spanish=/\b(hola|unidades|plazo|necesitamos)\b/i.test(r.text);
+ const blocked=r.checks.some(row=>['待确认','条件冲突'].includes(row.state));
+ if(spanish)return blocked?'Gracias por su consulta. Antes de emitir una cotización, necesitamos revisar la configuración y las condiciones solicitadas. Le contactaremos para confirmar los detalles pendientes.':'Gracias por su consulta. Estamos preparando la cotización y confirmaremos el precio, el plazo y la documentación tras la revisión interna.';
+ return blocked?'Thank you for your inquiry. Before issuing a quotation, we need to review the requested configuration and terms. We will follow up to confirm the outstanding details.':'Thank you for your inquiry. We are preparing the quotation and will confirm the price, lead time and documentation after our internal review.';
+}
+function renderDependent(){
+ const q=current?.quote;
+ $('quoteStatus').textContent=current?.quote_reason||'请先在「询盘接待」完成核对。修改邮件或附件后，旧报价会停止下载。';
+ $('quoteDetails').replaceChildren(...(q?[
+ ['报价编号',q.number],['型号',q.sku],['数量',q.quantity+' 件'],['示例单价',q.currency+' '+q.unit_price],
+ ['示例总价',q.currency+' '+q.amount],['交期',q.lead_days+' 天（订单及规格确认后）'],['交货条款',q.trade_term],['有效期',q.validity_days+' 天'],['价格来源',q.price_ref]
+ ].flatMap(([key,value])=>[e('dt',key),e('dd',value)]):[]));
+ $('quoteDownload').disabled=!q?.pdf;
+ $('stats').replaceChildren(...[['完成核对',records.length],['报价受阻',records.filter(r=>r.blocked).length],['生成报价',records.filter(r=>r.quote).length],['下载报价',downloaded]].map(([name,value])=>{
+  const panel=e('article',undefined,'panel stat');panel.append(e('strong',String(value)),e('span',name,'hint'));return panel;
+ }));
+ $('historyEmpty').hidden=!!records.length;$('historyTable').hidden=!records.length;
+ $('history').replaceChildren(...records.map(r=>{const row=e('tr');row.append(...[r.time.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'}),'REV '+String(r.id).padStart(2,'0'),r.sku||'待确认',r.decision,r.amount].map(v=>e('td',v)));return row;}));
+ const checks=current?.checks||[];
+ const blocked=checks.filter(row=>['待确认','条件冲突'].includes(row.state));
+ const advice=[];
+ if(blocked.some(r=>(r.sources||[]).length>1&&r.state==='待确认'))advice.push('先确认邮件和附件哪个版本有效，把最终要求合并成一份询盘后再报价。');
+ if(blocked.some(r=>r.state==='条件冲突'))advice.push('为已明确但无法满足的条件准备一个可执行的备选方案，再向买家确认。');
+ if(blocked.some(r=>r.state==='待确认'&&(r.sources||[]).length<=1))advice.push('优先补齐当前配置的工厂资料；型号切换时重新核对旧签样的适用范围。');
+ if(!current)advice.push('完成一次询盘核对后，这里会给出处理顺序。');
+ else if(!advice.length)advice.push(current.quote?'把本版询盘、报价编号和经复核的文件版本一起交给跟单人员。':'把当前配置录入经销售确认的价目表后再核对。');
+ list($('strategyItems'),advice);
+ $('traceEmpty').hidden=!!current;
+ list($('trace'),(current?.trace||[]).map(t=>t.step+'：'+t.detail));
+}
+async function run(){
+ const text=$('inquiry').value.trim(), files=[...$('attachment').files], id=++requestId;
+ $('error').textContent='';
+ if(!connected||(!text&&!files.length)){$('error').textContent=connected?'请粘贴邮件或上传附件。':'请从已启动的工作台地址打开页面。';return;}
+ clearResult('正在核对…','正在读取邮件与附件，并逐项检查工厂条件。');$('run').disabled=true;
+ try{
+  if(files.length>2)throw Error('每次最多上传一份 Excel 和一份 PDF。');
+  const documents=[], types=new Set();
+  for(const file of files){
+   const kind=file.name.toLowerCase().match(/\.(xlsx|pdf)$/)?.[1];
+   if(!kind||file.size<1||file.size>1048576)throw Error('请选择非空、且不超过 1 MB 的 Excel 或 PDF。');
+   if(types.has(kind))throw Error('Excel 和 PDF 各只能上传一份。');
+   types.add(kind);documents.push(...await qgReadAttachment(file));
+   if(id!==requestId)return;
+  }
+  const data=await Promise.resolve(QuoteGuardAgent.review({inquiry:text,documents}));if(id!==requestId)return;
+  if(data.quote){data.quote.pdf=await qgQuotePdf(data.quote);if(id!==requestId)return;}
+  renderResult(data,text);
+ }catch(err){if(id===requestId){clearResult('核对未完成','处理提示后可以重新核对。');$('error').textContent=err instanceof TypeError?'在线服务暂时无法连接，请稍后重试。':err.message;}}
+ finally{if(id===requestId)$('run').disabled=false;}
+}
+$('run').addEventListener('click',run);
+$('clearInquiry').addEventListener('click',()=>{$('inquiry').value='';clearFiles();prior=null;invalidate();$('inquiry').focus();});
+$('inquiry').addEventListener('input',invalidate);$('attachment').addEventListener('change',invalidate);
+$('clearAttachment').addEventListener('click',()=>{clearFiles();invalidate();});
+$('cases').addEventListener('click',ev=>{const button=ev.target.closest('[data-case]');if(!button)return;$('inquiry').value=samples[button.dataset.case];clearFiles();invalidate();markCases(button.dataset.case);if(connected)run();});
+$('pdfDemo').addEventListener('click',async()=>{
+ if(!connected)return;
+ $('inquiry').value='Hello, please quote 1,200 units. Please include the CE declaration. FOB Ningbo.';clearFiles();invalidate();
+ const id=requestId;$('pdfDemo').disabled=true;$('run').disabled=true;
+ try{
+  const response=await fetch('/demo/rfq-sample.pdf');
+  if(!response.ok)throw Error('无法加载 PDF 样例。');
+  const blob=await response.blob();if(id!==requestId)return;
+  const dt=new DataTransfer();dt.items.add(new File([blob],'rfq-sample.pdf',{type:'application/pdf'}));
+  $('attachment').files=dt.files;$('clearAttachment').hidden=false;run();
+ }catch(err){if(id===requestId){$('error').textContent='无法加载 PDF 样例，请重新尝试。';$('run').disabled=false;}}
+ finally{$('pdfDemo').disabled=false;}
+});
+$('quoteDownload').addEventListener('click',()=>{const q=current?.quote;if(!q?.pdf)return;download(q.number+'.pdf',Uint8Array.from(atob(q.pdf),ch=>ch.charCodeAt(0)),'application/pdf');downloaded++;renderDependent();});
+$('downloadReply').addEventListener('click',()=>{if(current)download('RFQ-reply-REV-'+current.id+'.txt',replyText(current),'text/plain;charset=utf-8');});
+$('productForm').addEventListener('submit',ev=>{ev.preventDefault();const title=$('productName').value.trim(), sku=$('productSku').value.trim(), specs=$('productSpecs').value.trim(), market=$('productMarket').value.trim();if(!title||!sku||!specs)return;
+ $('productDraft').value=[title+' | '+sku,'','目标市场：'+(market||'待确认'),'产品规格：'+specs,'','上架前复核：包装尺寸、起订量、交期和型号文件。'].join('\n');
+ $('productResult').hidden=false;$('productEmpty').hidden=true;
+});
+$('productDownload').addEventListener('click',()=>download('商品文案草稿.txt',$('productDraft').value,'text/plain;charset=utf-8'));
+const buyers=[['西班牙渠道商 A','西班牙',1200,'确认插座配置与型号文件'],['西班牙分销商 B','西班牙',650,'核实销售渠道与交期'],['德国零售商 C','德国',850,'确认包装和标签要求']];
+function filterBuyers(){
+ const country=$('buyerCountry').value, min=Number($('buyerQuantity').value);
+ const result=buyers.filter(b=>(country==='全部'||b[1]===country)&&b[2]>=min);
+ $('buyerCount').textContent=result.length+' 条示例';
+ $('buyerResults').replaceChildren(...(result.length?result.map(([name,area,qty,next])=>{const card=e('article',undefined,'mini');card.append(e('strong',name),e('p',area+' · '+qty+' 件（样例）','hint'),e('p','跟进：'+next,'hint'));return card;}):[e('p','没有符合条件的示例线索。','hint')]));
+}
+$('buyerForm').addEventListener('submit',ev=>{ev.preventDefault();filterBuyers();});
+$('logisticsForm').addEventListener('submit',ev=>{ev.preventDefault();const origin=$('origin').value.trim(), destination=$('destination').value.trim(), method=$('transport').value;if(!origin||!destination)return;
+ $('logisticsResult').textContent=origin+' → '+destination+' / '+method+'\n\n1. 核对交货条款、指定地点及责任方。\n2. 补齐货物重量、外箱尺寸及预计出货日。\n3. 请货代确认航线、班期、报价和订舱截止时间。';$('logisticsResult').hidden=false;$('logisticsEmpty').hidden=true;
+});
+const docs={invoice:['买卖双方名称、地址和发票编号','订单型号、数量、单价、币种、总金额','交货条款、付款条件及产地'],packing:['订单号、箱号与型号','箱数、每箱件数、总件数','毛重、净重和外箱尺寸'],declaration:['申报主体、成交方式和口岸','品名、申报要素、商品编码和原产国','核对发票、装箱单和运输单据'],contract:['双方主体、产品规格和验收依据','数量、价格、交货条款及付款条件','交付时间、责任边界和签署确认']};
+$('docType').addEventListener('change',()=>list($('docItems'),docs[$('docType').value]));
+$('run').disabled=!connected;$('pdfDemo').disabled=!connected;
+if(!connected)$('error').textContent='请使用本机工作台地址体验询盘核对。';
+const chatExamples={
+ buyer:'买家需要 1,200 件六位 Schuko 插座，不带 USB。邮件要求 35 天交货，但规格附件写 45 天。请帮我整理，先做什么？',
+ factory:'补充工厂反馈：标准款最短 40 天。客户可能改成 USB-C，但还没有确认。请更新处理步骤。'
+};
+let chatInputs=[], chatPlan=null, chatRequest=0;
+const chatInput=$('chatInput');
+function appendChat(text,agent=false){
+ const turn=e('div',undefined,'chat-turn'+(agent?' chat-agent':''));
+ if(agent)turn.append(e('strong','Agent'));
+ turn.append(e('span',text));$('chatFeed').append(turn);$('chatEmpty').hidden=true;
+ if(!$('page-chat').hidden)$('chatFeed').scrollTop=$('chatFeed').scrollHeight;
+}
+function chatEmptyList(container,items,placeholder){list(container,items.length?items:[placeholder]);}
+function renderChatPlan(plan,offset){
+ chatPlan=plan;$('chatPlan').hidden=false;$('chatPlanEmpty').hidden=true;
+ $('chatMode').textContent='在线 Agent · 无需配置';
+ $('chatFacts').replaceChildren(...(plan.facts.length?plan.facts.map((fact,index)=>{
+  const label=e('label',undefined,'chat-fact'),box=e('input'), body=e('span');
+  box.type='checkbox';box.value=String(index);
+  body.append(e('strong',fact.label),e('small','消息 '+(offset+fact.source)+' · '+fact.quote));label.append(box,body);return label;
+ }):[e('p','这次没有可核验的原文要点。','hint')]));
+ $('chatTransfer').disabled=true;
+ chatEmptyList($('chatQuestions'),plan.questions,'暂未列出待确认问题。');
+ chatEmptyList($('chatSteps'),plan.steps.map(step=>step.owner+'：'+step.action),'暂未生成操作步骤。');
+}
+$('chatFacts').addEventListener('change',()=>{$('chatTransfer').disabled=!$('chatFacts').querySelector('input:checked');});
+$('chatTransfer').addEventListener('click',()=>{
+ if(!chatPlan)return;
+ const quotes=[...new Set([...$('chatFacts').querySelectorAll('input:checked')].map(box=>chatPlan.facts[Number(box.value)].quote))];
+ if(!quotes.length)return;
+ const text=[$('inquiry').value.trim(),...quotes].filter(Boolean).join('\n');
+ if(text.length>4000){$('chatError').textContent='追加后超过询盘的 4000 字上限。请少选几条或先缩短原询盘。';return;}
+ $('inquiry').value=text;invalidate();show('inquiry');$('inquiry').focus();
+});
+$('chatExamples').addEventListener('click',event=>{
+ const button=event.target.closest('[data-example]');if(!button)return;
+ chatInput.value=chatExamples[button.dataset.example];chatInput.focus();
+});
+$('chatUseInquiry').addEventListener('click',()=>{
+ const text=$('inquiry').value.trim();
+ if(!text){$('chatError').textContent='当前询盘没有邮件正文。';return;}
+ if(text.length>2000){$('chatError').textContent='当前邮件超过单条消息的 2000 字上限，请挑选要引用的段落。';return;}
+ chatInput.value=text;$('chatError').textContent='';chatInput.focus();
+});
+$('resetChat').addEventListener('click',()=>{
+ ++chatRequest;chatInputs=[];chatPlan=null;
+ $('chatFeed').replaceChildren($('chatEmpty'));$('chatEmpty').hidden=false;
+ $('chatPlan').hidden=true;$('chatPlanEmpty').hidden=false;chatInput.value='';
+ $('chatError').textContent='';$('chatStatus').textContent='';$('sendChat').disabled=!connected;chatInput.focus();
+});
+$('chatForm').addEventListener('submit',async event=>{
+ event.preventDefault();
+ const text=chatInput.value.trim();if(!text||!connected||$('sendChat').disabled)return;
+ const id=++chatRequest;
+ chatInputs.push(text);const offset=Math.max(0,chatInputs.length-10);
+ appendChat(text);chatInput.value='';$('sendChat').disabled=true;$('chatError').textContent='';$('chatStatus').textContent='Agent 正在整理…';
+ try{
+  const data=await Promise.resolve(QuoteGuardAgent.chat({messages:chatInputs.slice(-10)}));
+  if(id!==chatRequest)return;
+  appendChat(data.summary,true);renderChatPlan(data,offset);
+ }catch(err){
+  if(id===chatRequest){
+   $('chatError').textContent=err instanceof TypeError?'在线服务暂时无法连接，请稍后重试。':err.message;
+   chatInputs.pop();$('chatFeed').lastElementChild?.remove();$('chatEmpty').hidden=!!chatInputs.length;
+   if(!chatInput.value)chatInput.value=text;
+  }
+ }finally{if(id===chatRequest){$('sendChat').disabled=false;$('chatStatus').textContent='';}}
+});
+$('sendChat').disabled=!connected;
+filterBuyers();list($('docItems'),docs.invoice);renderDependent();readRoute();
+})();
+</script>
+</body>
+</html>
